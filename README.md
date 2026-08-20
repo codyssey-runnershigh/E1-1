@@ -532,3 +532,50 @@ docker run --rm -v temp-volume:/data ubuntu cat /data/text.txt
 ```
 
 ### Git 설정 및 GitHub 연동
+#### 로그인 상태
+```bash
+❯ gh auth status
+github.com
+  ✓ Logged in to github.com account kerlic (keyring)
+  - Active account: true
+  - Git operations protocol: ssh
+  - Token: gho_************************************
+  - Token scopes: 'admin:public_key', 'gist', 'read:org', 'repo'
+```
+### Git 설정 목록
+```bash
+❯ git config --list
+Alias tip: gcf
+credential.helper=osxkeychain
+init.defaultbranch=main
+user.email=kerli@naver.com
+user.name=kerlic
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+core.excludesfile=/Users/one/.gitignore_global
+difftool.sourcetree.cmd=opendiff "$LOCAL" "$REMOTE"
+difftool.sourcetree.path=
+mergetool.sourcetree.cmd=/Users/one/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh "$LOCAL" "$REMOTE" -ancestor "$BASE" -merge "$MERGED"
+mergetool.sourcetree.trustexitcode=true
+commit.template=/Users/one/.stCommitMsg
+color.ui=auto
+color.branch=auto
+color.diff=auto
+color.status=auto
+alias.lg1=log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
+alias.lg2=log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+alias.lg=lg1
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+core.ignorecase=true
+core.precomposeunicode=true
+remote.origin.url=git@github.com:codyssey-runnershigh/E1-1.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
+(END)
+  ```
