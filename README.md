@@ -531,8 +531,8 @@ docker run --rm -v temp-volume:/data ubuntu cat /data/text.txt
 볼륨데이터
 ```
 
-### Git 설정 및 GitHub 연동
-#### 로그인 상태
+## Git 설정 및 GitHub 연동
+로그인 상태
 ```bash
 ❯ gh auth status
 github.com
@@ -542,7 +542,7 @@ github.com
   - Token: gho_************************************
   - Token scopes: 'admin:public_key', 'gist', 'read:org', 'repo'
 ```
-### Git 설정 목록
+Git 설정 목록
 ```bash
 ❯ git config --list
 Alias tip: gcf
@@ -579,3 +579,22 @@ branch.main.remote=origin
 branch.main.merge=refs/heads/main
 (END)
   ```
+
+## 트러블 슈팅
+Cannot connect to the Docker daemon
+```bash
+❯ docker context ls
+NAME            DESCRIPTION                               DOCKER ENDPOINT                               ERROR
+default         Current DOCKER_HOST based configuration   unix:///var/run/docker.sock
+desktop-linux   Docker Desktop                            unix:///Users/one/.docker/run/docker.sock
+orbstack *      OrbStack                                  unix:///Users/one/.orbstack/run/docker.sock
+❯ docker context show
+orbstack
+```
+
+호스트 포트 이미 사용중
+```bash
+docker ps --format 'table {{.Names}}\t{{.Ports}}'
+lsof -nP -iTCP:8080 -sTCP:LISTEN
+```
+
